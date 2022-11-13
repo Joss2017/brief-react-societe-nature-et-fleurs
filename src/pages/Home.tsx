@@ -55,13 +55,27 @@ const Home = () => {
         listElementPlant={listePlantes}
         onChangeCategoriesCheck={handleCheckCategories}
       />
-      <div className="container-fluid custom-main">
+      <div
+        className="container-fluid custom-main"
+        style={{ display: "flex no-wrap" }}
+      >
         {listPlantDisplayed.map((plante, i) => (
           <li key={i}>
-            {plante.name} - {plante.category} - 💵 {plante.unitprice_ati}€ - ⭐
-            {plante.rating}
+            <div className="card" style={{ width: "18rem" }} />
+            <img
+              src={plante.url_picture}
+              className="card-img-top"
+              alt="photos"
+            />
+            <div className="card-body">
+              <h5 className="card-title">{plante.name}</h5>
+              <p className="card-text">
+                {plante.category}- 💵 {plante.unitprice_ati}€ ⭐{plante.rating}
+              </p>
+              <div className="btn btn-success">Acheter</div>
+            </div>
           </li>
-        ))}{" "}
+        ))}
       </div>
     </div>
   );
