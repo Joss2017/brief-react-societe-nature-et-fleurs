@@ -57,25 +57,29 @@ const Home = () => {
       />
       <div
         className="container-fluid custom-main"
-        style={{ display: "flex no-wrap" }}
+        style={{ display: "flex", flexWrap: "wrap", marginRight: "20px" }}
       >
-        {listPlantDisplayed.map((plante, i) => (
-          <li key={i}>
-            <div className="card" style={{ width: "18rem" }} />
-            <img
-              src={plante.url_picture}
-              className="card-img-top"
-              alt="photos"
-            />
-            <div className="card-body">
-              <h5 className="card-title">{plante.name}</h5>
-              <p className="card-text">
-                {plante.category}- 💵 {plante.unitprice_ati}€ ⭐{plante.rating}
-              </p>
-              <div className="btn btn-success">Acheter</div>
-            </div>
-          </li>
-        ))}
+        <ul>
+          {listPlantDisplayed.map((plante, i) => (
+            <li key={i} style={{ listStyleType: "none" }}>
+              <div className="card" style={{ width: "18rem" }} />
+              <img
+                src={`http://localhost:8080/assets/${plante.url_picture}`}
+                className="card-img-top"
+                alt="photos"
+                style={{ width: "10rem" }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{plante.name}</h5>
+                <p className="card-text">
+                  {plante.category}- 💵 {plante.unitprice_ati}€ ⭐
+                  {plante.rating}
+                </p>
+                <div className="btn btn-success">Acheter</div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
